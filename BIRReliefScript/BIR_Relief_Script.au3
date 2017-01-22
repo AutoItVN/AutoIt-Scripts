@@ -17,8 +17,6 @@
 
 HotKeySet("{END}", "exitz")
 
-$sendKeyDelay = 130
-AutoItSetOption("SendKeyDelay", $sendKeyDelay)
 AutoItSetOption("WinTitleMatchMode", 2)
 ; AutoItSetOption("GUIOnEventMode", 1)
 
@@ -38,6 +36,10 @@ Local $excelFile = ""
 ; WinTitles
 Local Const $BIRtitle = "Bureau of Internal Revenue - Relief System"
 Local $ExcelTitle = ""
+
+; send key delay
+$sendKeyDelay = 150
+; AutoItSetOption("SendKeyDelay", $sendKeyDelay)
 
 ; script states
 Local $scriptMode = $M_SALES
@@ -465,10 +467,22 @@ Func start()
 	$ExcelTitle = StringStripCR($ExcelTitle)
 	$ExcelTitle = StringStripWS($ExcelTitle, 3)
 
+	Local $sendKeyDelayInput = GUICtrlRead($txtDelay)
+
 	If StringLen($ExcelTitle) = 0 Then
 		MsgBox(48, "No Input", "Please enter a file name of the Excel", 0, $frmMain)
 		Return
 	EndIf
+
+	If (StringLen($sendKeyDelayInput) = 0) Or (StringIsDigit($sendKeyDelayInput) = 0) Then
+		MsgBox(48, "Error Input", "Please enter a number. Higher number is slower but more error prone." & @CRLF _
+			& "150 ms is the default", $frmMain)
+		Return
+	EndIf
+
+	$sendKeyDelay = $sendKeyDelayInput
+	; set delay
+	AutoItSetOption("SendKeyDelay", $sendKeyDelay)
 
 	; note
 	MsgBox(64, "Note", "Note:" & @CRLF & "* You can stop the script by pressing the END on your keyboard." & @CRLF _
@@ -478,7 +492,7 @@ Func start()
 	If WinExists($ExcelTitle) = 0 Then
 		MsgBox(16, "Error", "The '" & $ExcelTitle & "' Excel window is not opened.", 0, $frmMain)
 		Return
-	elseif WinExists($BIRtitle) = 0 Then
+	ElseIf WinExists($BIRtitle) = 0 Then
 		MsgBox(16, "Error", "The " & $BIRtitle & " window is not opened.", 0, $frmMain)
 		Return
 	EndIf
