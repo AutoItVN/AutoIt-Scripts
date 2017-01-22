@@ -80,16 +80,17 @@ $Label1 = GUICtrlCreateLabel("Choose what to automate:", 16, 48, 128, 17)
 $btnBrowse = GUICtrlCreateButton("...", 390, 12, 27, 21)
 $Label2 = GUICtrlCreateLabel("Options:", 16, 192, 43, 17)
 
-; states
+; default states
 GUICtrlSetState($radServices, $GUI_CHECKED)
 GUICtrlSetState($radSales, $GUI_CHECKED)
 enableRadioServices(False)
 
-; tips
+; tooltips
 GUICtrlSetTip($chkTest, "If checked, the script will not save the records to the BIR System.")
 GUICtrlSetTip($btnBrowse, "Browse the Excel file from your PC.")
 
 GUISetState(@SW_SHOW)
+
 
 While 1
 	Switch GUIGetMsg()
@@ -413,6 +414,7 @@ Func exitz()
 EndFunc ; exitz
 
 ; END OF FUNCTIONS
+
 
 ; EVENTS
 
