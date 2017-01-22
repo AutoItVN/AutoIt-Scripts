@@ -1,8 +1,11 @@
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_Icon=res\icon\ScriptIcon.ico
-#AutoIt3Wrapper_Res_Description=BIR Relief System Script
-#AutoIt3Wrapper_Res_Fileversion=1.2.1
+#AutoIt3Wrapper_Res_Description=BIR Relief System Script 1.1.1
+#AutoIt3Wrapper_Res_Fileversion=1.1.1.0
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
+
+; BirReliefScript
+; Version 1.1.1
 ; #include <ImageSearch2015.au3>
 #include <ButtonConstants.au3>
 #include <EditConstants.au3>
@@ -275,6 +278,14 @@ Func automate()
 		_BlockInputEx(1, "{END}")
 		; Save
 		If Not $isTest Then
+			; check if error on address
+			If WinExists("[CLASS:#32770]") Then
+				_BlockInputEx(0)
+				MsgBox(3, "", "An error has occurred.")
+				Return
+			EndIf
+
+			; save
 			activateWin($BIRtitle)
 			Send("!s")
 			activateWin($ExcelTitle, "Excel")
