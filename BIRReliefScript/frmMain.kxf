@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <object type="TAForm" name="frmMain">
 	<properties>
-		<property name="Left" vt="Int16">541</property>
-		<property name="Top" vt="Int16">168</property>
-		<property name="Width" vt="Int16">447</property>
-		<property name="Height" vt="Int16">318</property>
+		<property name="Left" vt="Int16">440</property>
+		<property name="Top" vt="Int16">217</property>
+		<property name="Width" vt="Int16">448</property>
+		<property name="Height" vt="Int16">319</property>
 		<property name="Caption" vt="String">BIR System Script</property>
-		<property name="Color" vt="Ident">clBtnHighlight</property>
+		<property name="Color" vt="Ident">clWhite</property>
 		<property name="Font.Charset" vt="Ident">DEFAULT_CHARSET</property>
 		<property name="Font.Color" vt="Ident">clWindowText</property>
 		<property name="Font.Height" vt="Int8">-11</property>
 		<property name="Font.Name" vt="String">MS Sans Serif</property>
 		<property name="Font.Style" vt="Set"/>
-		<property name="Menu" vt="Ident">mnu</property>
-		<property name="OldCreateOrder" vt="False">False</property>
+		<property name="Menu" vt="Ident">AMenu1</property>
+		<property name="OldCreateOrder" vt="True">True</property>
 		<property name="Visible" vt="True">True</property>
 		<property name="Style" vt="Int32">-1798701056</property>
 		<property name="ExStyle" vt="Int16">256</property>
@@ -31,7 +31,7 @@
 		<property name="TextHeight" vt="Int8">13</property>
 	</properties>
 	<components>
-		<object type="TAMenu" name="mnu">
+		<object type="TAMenu" name="AMenu1">
 			<properties>
 				<property name="Left" vt="Int8">0</property>
 				<property name="Top" vt="Int8">0</property>
@@ -39,6 +39,22 @@
 				<property name="Height" vt="Int8">28</property>
 				<property name="Associate" vt="Ident">Owner</property>
 				<property name="WrappedName" vt="String">MainMenu1</property>
+			</properties>
+			<components/>
+		</object>
+		<object type="TALabel" name="lblExcel">
+			<properties>
+				<property name="Left" vt="Int8">21</property>
+				<property name="Top" vt="Int8">16</property>
+				<property name="Width" vt="Int8">83</property>
+				<property name="Height" vt="Int8">17</property>
+				<property name="AutoSize" vt="False">False</property>
+				<property name="Caption" vt="String">Excel File Name:</property>
+				<property name="TabOrder" vt="Int8">0</property>
+				<property name="HaveVariable" vt="False">False</property>
+				<property name="CtrlStyle" vt="Int32">1342308608</property>
+				<property name="CtrlExStyle" vt="Int8">0</property>
+				<property name="Resizing" vt="Set"/>
 			</properties>
 			<components/>
 		</object>
@@ -68,20 +84,6 @@
 				<property name="Resizing" vt="Set"/>
 			</properties>
 			<components>
-				<object type="TARadio" name="radOtherGoods">
-					<properties>
-						<property name="Left" vt="Int16">306</property>
-						<property name="Top" vt="Int8">24</property>
-						<property name="Width" vt="Int8">89</property>
-						<property name="Height" vt="Int8">17</property>
-						<property name="Caption" vt="String">Other Goods</property>
-						<property name="TabOrder" vt="Int8">2</property>
-						<property name="CtrlStyle" vt="Int32">1342242825</property>
-						<property name="CtrlExStyle" vt="Int8">0</property>
-						<property name="Resizing" vt="Set">DockHeight</property>
-					</properties>
-					<components/>
-				</object>
 				<object type="TARadio" name="radServices">
 					<properties>
 						<property name="Left" vt="Int8">24</property>
@@ -110,23 +112,21 @@
 					</properties>
 					<components/>
 				</object>
+				<object type="TARadio" name="radOtherGoods">
+					<properties>
+						<property name="Left" vt="Int16">306</property>
+						<property name="Top" vt="Int8">24</property>
+						<property name="Width" vt="Int8">89</property>
+						<property name="Height" vt="Int8">17</property>
+						<property name="Caption" vt="String">Other Goods</property>
+						<property name="TabOrder" vt="Int8">2</property>
+						<property name="CtrlStyle" vt="Int32">1342242825</property>
+						<property name="CtrlExStyle" vt="Int8">0</property>
+						<property name="Resizing" vt="Set">DockHeight</property>
+					</properties>
+					<components/>
+				</object>
 			</components>
-		</object>
-		<object type="TAButton" name="btnCancel">
-			<properties>
-				<property name="Left" vt="Int16">344</property>
-				<property name="Top" vt="Int16">209</property>
-				<property name="Width" vt="Int8">75</property>
-				<property name="Height" vt="Int8">25</property>
-				<property name="Caption" vt="String">Cancel</property>
-				<property name="TabOrder" vt="Int8">4</property>
-				<property name="OnClick" vt="String">btnCancelClick</property>
-				<property name="Color" vt="Ident">clBtnFace</property>
-				<property name="CtrlStyle" vt="Int32">1342373888</property>
-				<property name="CtrlExStyle" vt="Int8">0</property>
-				<property name="Resizing" vt="Set">DockWidth, DockHeight</property>
-			</properties>
-			<components/>
 		</object>
 		<object type="TAButton" name="btnStart">
 			<properties>
@@ -143,27 +143,28 @@
 			</properties>
 			<components/>
 		</object>
-		<object type="TALabel" name="lblExcel">
+		<object type="TAButton" name="btnCancel">
 			<properties>
-				<property name="Left" vt="Int8">21</property>
-				<property name="Top" vt="Int8">16</property>
-				<property name="Width" vt="Int8">83</property>
-				<property name="Height" vt="Int8">17</property>
-				<property name="Caption" vt="String">Excel File Name:</property>
-				<property name="TabOrder" vt="Int8">0</property>
-				<property name="HaveVariable" vt="False">False</property>
-				<property name="CtrlStyle" vt="Int32">1342308608</property>
+				<property name="Left" vt="Int16">344</property>
+				<property name="Top" vt="Int16">209</property>
+				<property name="Width" vt="Int8">75</property>
+				<property name="Height" vt="Int8">25</property>
+				<property name="Caption" vt="String">Cancel</property>
+				<property name="TabOrder" vt="Int8">4</property>
+				<property name="Color" vt="Ident">clBtnFace</property>
+				<property name="CtrlStyle" vt="Int32">1342373888</property>
 				<property name="CtrlExStyle" vt="Int8">0</property>
-				<property name="Resizing" vt="Set"/>
+				<property name="Resizing" vt="Set">DockWidth, DockHeight</property>
 			</properties>
 			<components/>
 		</object>
 		<object type="TACheckbox" name="chkTest">
 			<properties>
-				<property name="Left" vt="Int8">40</property>
+				<property name="Left" vt="Int8">16</property>
 				<property name="Top" vt="Int16">216</property>
 				<property name="Width" vt="Int8">49</property>
 				<property name="Height" vt="Int8">17</property>
+				<property name="Hint" vt="String">If checked, the script will not save the records to the BIR System.</property>
 				<property name="Caption" vt="String">Test</property>
 				<property name="TabOrder" vt="Int8">5</property>
 				<property name="CtrlStyle" vt="Int32">1342242819</property>
@@ -193,7 +194,9 @@
 				<property name="Width" vt="Int8">57</property>
 				<property name="Height" vt="Int8">17</property>
 				<property name="Caption" vt="String">Sales</property>
+				<property name="Checked" vt="True">True</property>
 				<property name="TabOrder" vt="Int8">7</property>
+				<property name="TabStop" vt="True">True</property>
 				<property name="CtrlStyle" vt="Int32">1342242825</property>
 				<property name="CtrlExStyle" vt="Int8">0</property>
 				<property name="Resizing" vt="Set">DockHeight</property>
@@ -206,6 +209,7 @@
 				<property name="Top" vt="Int8">48</property>
 				<property name="Width" vt="Int16">128</property>
 				<property name="Height" vt="Int8">17</property>
+				<property name="AutoSize" vt="False">False</property>
 				<property name="Caption" vt="String">Choose what to automate:</property>
 				<property name="TabOrder" vt="Int8">8</property>
 				<property name="HaveVariable" vt="False">False</property>
@@ -221,6 +225,7 @@
 				<property name="Top" vt="Int8">12</property>
 				<property name="Width" vt="Int8">27</property>
 				<property name="Height" vt="Int8">21</property>
+				<property name="Hint" vt="String">Browse the Excel file from your PC.</property>
 				<property name="Caption" vt="String">...</property>
 				<property name="TabOrder" vt="Int8">9</property>
 				<property name="Color" vt="Ident">clBtnFace</property>
@@ -236,12 +241,41 @@
 				<property name="Top" vt="Int16">192</property>
 				<property name="Width" vt="Int8">43</property>
 				<property name="Height" vt="Int8">17</property>
+				<property name="AutoSize" vt="False">False</property>
 				<property name="Caption" vt="String">Options:</property>
 				<property name="TabOrder" vt="Int8">10</property>
 				<property name="HaveVariable" vt="False">False</property>
 				<property name="CtrlStyle" vt="Int32">1342308608</property>
 				<property name="CtrlExStyle" vt="Int8">0</property>
 				<property name="Resizing" vt="Set"/>
+			</properties>
+			<components/>
+		</object>
+		<object type="TALabel" name="Label3">
+			<properties>
+				<property name="Left" vt="Int8">120</property>
+				<property name="Top" vt="Int16">216</property>
+				<property name="Width" vt="Int8">52</property>
+				<property name="Height" vt="Int8">17</property>
+				<property name="Caption" vt="String">Key Delay</property>
+				<property name="TabOrder" vt="Int8">11</property>
+				<property name="HaveVariable" vt="False">False</property>
+				<property name="CtrlStyle" vt="Int32">1342308608</property>
+				<property name="CtrlExStyle" vt="Int8">0</property>
+				<property name="Resizing" vt="Set"/>
+			</properties>
+			<components/>
+		</object>
+		<object type="TAInput" name="txtDelay">
+			<properties>
+				<property name="Left" vt="Int8">72</property>
+				<property name="Top" vt="Int16">216</property>
+				<property name="Width" vt="Int8">41</property>
+				<property name="Height" vt="Int8">17</property>
+				<property name="TabOrder" vt="Int8">12</property>
+				<property name="CtrlStyle" vt="Int32">1342374016</property>
+				<property name="CtrlExStyle" vt="Int16">512</property>
+				<property name="Resizing" vt="Set">DockHeight</property>
 			</properties>
 			<components/>
 		</object>
@@ -253,9 +287,9 @@
 						<property name="Caption" vt="String">&amp;Help</property>
 					</properties>
 					<components>
-						<object type="TAMenuItem" name="itmAbout">
+						<object type="TMenuItem" name="itmAbout">
 							<properties>
-								<property name="Caption" vt="String">&amp;About</property>
+								<property name="Caption" vt="String">About</property>
 							</properties>
 							<components/>
 						</object>
