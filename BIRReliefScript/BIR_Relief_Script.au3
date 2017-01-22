@@ -17,7 +17,8 @@
 
 HotKeySet("{END}", "exitz")
 
-AutoItSetOption("SendKeyDelay", 150) ; 100
+$sendKeyDelay = 130
+AutoItSetOption("SendKeyDelay", $sendKeyDelay)
 AutoItSetOption("WinTitleMatchMode", 2)
 ; AutoItSetOption("GUIOnEventMode", 1)
 
@@ -62,7 +63,7 @@ EndIf
 ; MAINGUI
 $frmMain = GUICreate("BIR System Script", 433, 281, 440, 217)
 $mnuHelp = GUICtrlCreateMenu("&Help")
-$itmAbout = GUICtrlCreateMenuItem("About"&@TAB&"", $mnuHelp)
+$itmAbout = GUICtrlCreateMenuItem("About"&@TAB&"Ctrl+Home", $mnuHelp)
 GUISetBkColor(0xFFFFFF)
 $lblExcel = GUICtrlCreateLabel("Excel File Name:", 21, 16, 83, 17)
 $txtFileName = GUICtrlCreateInput("", 112, 12, 273, 21)
@@ -82,13 +83,15 @@ $Label1 = GUICtrlCreateLabel("Choose what to automate:", 16, 48, 128, 17)
 $btnBrowse = GUICtrlCreateButton("...", 390, 12, 27, 21)
 GUICtrlSetTip(-1, "Browse the Excel file from your PC.")
 $Label2 = GUICtrlCreateLabel("Options:", 16, 192, 43, 17)
-$Label3 = GUICtrlCreateLabel("Key Delay", 120, 216, 52, 17)
+$Label3 = GUICtrlCreateLabel("Key Delay (ms)", 120, 216, 74, 17)
 $txtDelay = GUICtrlCreateInput("", 72, 216, 41, 17)
-GUISetState(@SW_SHOW)
+Dim $frmMain_AccelTable[1][2] = [["^{HOME}", $itmAbout]]
+GUISetAccelerators($frmMain_AccelTable)
 
 ; default states
 GUICtrlSetState($radServices, $GUI_CHECKED)
 GUICtrlSetState($radSales, $GUI_CHECKED)
+GUICtrlSetData($txtDelay, $sendKeyDelay)
 enableRadioServices(False)
 
 ; tooltips
