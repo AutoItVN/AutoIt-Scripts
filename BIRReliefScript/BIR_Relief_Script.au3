@@ -17,7 +17,7 @@
 
 HotKeySet("{END}", "exitz")
 
-AutoItSetOption("SendKeyDelay", 110) ; 100
+AutoItSetOption("SendKeyDelay", 150) ; 100
 AutoItSetOption("WinTitleMatchMode", 2)
 ; AutoItSetOption("GUIOnEventMode", 1)
 
@@ -60,9 +60,9 @@ If _Singleton("BIR_Relief_Script", 1) = 0 Then
 EndIf
 
 ; MAINGUI
-$frmMain = GUICreate("BIR System Script", 432, 280, 541, 168)
+$frmMain = GUICreate("BIR System Script", 433, 281, 440, 217)
 $mnuHelp = GUICtrlCreateMenu("&Help")
-$itmAbout = GUICtrlCreateMenuItem("&About", $mnuHelp)
+$itmAbout = GUICtrlCreateMenuItem("About"&@TAB&"", $mnuHelp)
 GUISetBkColor(0xFFFFFF)
 $lblExcel = GUICtrlCreateLabel("Excel File Name:", 21, 16, 83, 17)
 $txtFileName = GUICtrlCreateInput("", 112, 12, 273, 21)
@@ -73,12 +73,18 @@ $radOtherGoods = GUICtrlCreateRadio("Other Goods", 322, 144, 89, 17)
 GUICtrlCreateGroup("", -99, -99, 1, 1)
 $btnStart = GUICtrlCreateButton("Start!", 256, 209, 75, 25)
 $btnCancel = GUICtrlCreateButton("Cancel", 344, 209, 75, 25)
-$chkTest = GUICtrlCreateCheckbox("Test", 40, 216, 49, 17)
+$chkTest = GUICtrlCreateCheckbox("Test", 16, 216, 49, 17)
+GUICtrlSetTip(-1, "If checked, the script will not save the records to the BIR System.")
 $radPurchase = GUICtrlCreateRadio("Purchase", 16, 96, 73, 17)
 $radSales = GUICtrlCreateRadio("Sales", 16, 72, 57, 17)
+GUICtrlSetState(-1, $GUI_CHECKED)
 $Label1 = GUICtrlCreateLabel("Choose what to automate:", 16, 48, 128, 17)
 $btnBrowse = GUICtrlCreateButton("...", 390, 12, 27, 21)
+GUICtrlSetTip(-1, "Browse the Excel file from your PC.")
 $Label2 = GUICtrlCreateLabel("Options:", 16, 192, 43, 17)
+$Label3 = GUICtrlCreateLabel("Key Delay", 120, 216, 52, 17)
+$txtDelay = GUICtrlCreateInput("", 72, 216, 41, 17)
+GUISetState(@SW_SHOW)
 
 ; default states
 GUICtrlSetState($radServices, $GUI_CHECKED)
@@ -424,7 +430,7 @@ Func browse()
 	If @error = 1 Then
 		Return
 	EndIf
-	MsgBox(0, "", $excelFile)
+
 	;$excelFile = StringRegExp($excelFile, ".*\\(.*)[^(.xlsx?)]", 1)
 	$excelFile = StringRegExp($excelFile, ".*\\(.+)\.(.+)", 1)
 
