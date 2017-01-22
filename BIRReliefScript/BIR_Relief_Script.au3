@@ -420,11 +420,14 @@ EndFunc ; exitz
 
 ; Description: displays File Open Dialog to select the excel file
 Func browse()
-	$excelFile = FileOpenDialog("Select Excel File", @DocumentsCommonDir, "Excel(*.xls; *.xlsx)",$FD_FILEMUSTEXIST  + $FD_PATHMUSTEXIST, "", $frmMain)
+	$excelFile = FileOpenDialog("Select Excel File", @DocumentsCommonDir, "Excel(*.xls; *.xlsx)", $FD_FILEMUSTEXIST  + $FD_PATHMUSTEXIST, "", $frmMain)
 	If @error = 1 Then
 		Return
 	EndIf
-	$excelFile = StringRegExp($excelFile, ".*\\(.*)[^(.xlsx?)]", 1)
+	MsgBox(0, "", $excelFile)
+	;$excelFile = StringRegExp($excelFile, ".*\\(.*)[^(.xlsx?)]", 1)
+	$excelFile = StringRegExp($excelFile, ".*\\(.+)\.(.+)", 1)
+
 	GUICtrlSetData($txtFileName, $excelFile[0])
 	FileChangeDir(@ScriptDir)
 EndFunc ; browse
